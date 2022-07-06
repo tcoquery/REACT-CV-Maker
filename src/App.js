@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GeneralInformation from "./components/generalInformation";
-
+import GeneralInput from "./components/generalInput";
 
 class App extends Component {
   constructor() {
@@ -46,34 +46,7 @@ class App extends Component {
     let formInfo;
 
     if (showInputs) { 
-      formInfo =   
-      <form onSubmit={this.onSubmit}>
-      <label htmlFor="nameInput">Name</label>
-      <input
-        onChange={this.handleChange}
-        name="name"
-        value={info.name}
-        type="text"
-        id="nameInput"
-      />
-      <label htmlFor="emailInput">Email</label>
-      <input
-        onChange={this.handleChange}
-        name="email"
-        value={info.email}
-        type="email"
-        id="emailInput"
-      />
-      <label htmlFor="phoneInput">Phone number</label>
-      <input
-        onChange={this.handleChange}
-        name="phoneNumber"
-        value={info.phoneNumber}
-        type="number"
-        id="phoneInput"
-      />
-      <button type="submit">Add information</button>
-    </form>  
+      formInfo = <GeneralInput onSubmit={this.onSubmit} onChange={this.handleChange} name={info.name} email={info.email} phone={info.phoneNumber}/>;  
     } else {
       formInfo = <GeneralInformation onClick={this.onEdit} name={info.name} email={info.email} phone={info.phoneNumber}/>;    
     }

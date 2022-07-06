@@ -7,25 +7,25 @@ const GeneralInput = (props) => {
         <form onSubmit={props.onSubmit}>
             <label htmlFor="nameInput">Name</label>
             <input
-                onChange={props.handleChange}
+                onChange={props.onChange}
                 name="name"
-                value={props.state.name}
+                value={props.name}
                 type="text"
                 id="nameInput"
             />
             <label htmlFor="emailInput">Email</label>
             <input
-                onChange={props.handleChange}
+                onChange={props.onChange}
                 name="email"
-                value={props.state.email}
+                value={props.email}
                 type="email"
                 id="emailInput"
             />
             <label htmlFor="phoneInput">Phone number</label>
             <input
-                onChange={props.handleChange}
+                onChange={props.onChange}
                 name="phoneNumber"
-                value={props.state.phoneNumber}
+                value={props.phone}
                 type="number"
                 id="phoneInput"
             />
