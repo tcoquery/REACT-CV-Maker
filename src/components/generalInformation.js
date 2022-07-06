@@ -5,10 +5,11 @@ const GeneralInformation = (props) => {
   return (
     <div>
         <ul>
-         <li >
+            <li>
                 {props.name}
                 {props.email}
                 {props.phone}
+                <button onClick={props.onClick}>Edit</button>
             </li>
         </ul>
     </div>

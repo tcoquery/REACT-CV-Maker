@@ -6,8 +6,7 @@ class App extends Component {
   constructor() {
     super();  
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onChange = this.handleChange.bind(this);
+    this.onEdit = this.onEdit.bind(this);
     this.state = {
       name: '',
       email: '',
@@ -30,13 +29,19 @@ class App extends Component {
     this.setState({
       showInputs: false
     });
-
-
   };
+
+  onEdit = () => {
+    this.setState({
+      showInputs: true
+    });
+  };
+
 
   render() {
 
     const showInputs = this.state.showInputs;
+    const info = this.state;
 
     let formInfo;
 
@@ -47,7 +52,7 @@ class App extends Component {
       <input
         onChange={this.handleChange}
         name="name"
-        value={this.state.name}
+        value={info.name}
         type="text"
         id="nameInput"
       />
@@ -55,7 +60,7 @@ class App extends Component {
       <input
         onChange={this.handleChange}
         name="email"
-        value={this.state.email}
+        value={info.email}
         type="email"
         id="emailInput"
       />
@@ -63,14 +68,14 @@ class App extends Component {
       <input
         onChange={this.handleChange}
         name="phoneNumber"
-        value={this.state.phoneNumber}
+        value={info.phoneNumber}
         type="number"
         id="phoneInput"
       />
       <button type="submit">Add information</button>
     </form>  
     } else {
-      formInfo = <GeneralInformation name={this.state.name} email={this.state.email} phone={this.state.phoneNumber}/>;    
+      formInfo = <GeneralInformation onClick={this.onEdit} name={info.name} email={info.email} phone={info.phoneNumber}/>;    
     }
 
     return (
