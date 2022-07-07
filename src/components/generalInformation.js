@@ -6,7 +6,8 @@ const GeneralInformation = (props) => {
     <div>
         <ul>
             <li>
-                {props.name}
+                {props.firstName}
+                {props.lastName}
                 {props.email}
                 {props.phone}
                 <button onClick={props.onClick}>Edit</button>

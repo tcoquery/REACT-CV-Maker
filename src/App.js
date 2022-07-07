@@ -9,7 +9,8 @@ class App extends Component {
     this.onInfoEdit = this.onInfoEdit.bind(this);
     this.state = {
       general: {
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         phoneNumber:'', 
       },
@@ -48,9 +49,9 @@ class App extends Component {
     let formInfo;
 
     if (showInfo) { 
-      formInfo = <GeneralInput onSubmit={this.onSubmit} onChange={this.handleChange} name={general.name} email={general.email} phone={general.phoneNumber}/>;  
+      formInfo = <GeneralInput onSubmit={this.onSubmit} onChange={this.handleChange} firstName={general.firstName} lastName={general.lastName} email={general.email} phone={general.phoneNumber}/>;  
     } else {
-      formInfo = <GeneralInformation onClick={this.onInfoEdit} name={general.name} email={general.email} phone={general.phoneNumber}/>;    
+      formInfo = <GeneralInformation onClick={this.onInfoEdit} firstName={general.firstName} lastName={general.lastName} email={general.email} phone={general.phoneNumber}/>;    
     }
 
     return (

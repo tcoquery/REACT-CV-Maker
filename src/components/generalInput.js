@@ -5,13 +5,21 @@ const GeneralInput = (props) => {
   return (
     <div>
         <form onSubmit={props.onSubmit}>
-            <label htmlFor="nameInput">Name</label>
+            <label htmlFor="firstName">First Name</label>
             <input
                 onChange={props.onChange}
-                name="name"
-                value={props.name}
+                name="firstName"
+                value={props.firstName}
                 type="text"
-                id="nameInput"
+                id="firstName"
+            />
+            <label htmlFor="lastName">LastName</label>
+            <input
+                onChange={props.onChange}
+                name="lastName"
+                value={props.lastName}
+                type="text"
+                id="lastName"
             />
             <label htmlFor="emailInput">Email</label>
             <input
