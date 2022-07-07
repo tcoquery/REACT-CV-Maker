@@ -1,7 +1,7 @@
 import React from "react";
 
 const EducInformation = (props) => {
-    const { educations } = props;
+const { educations } = props;
 
   return (
     <div>
@@ -13,6 +13,7 @@ const EducInformation = (props) => {
                             {education.endYear}
                             {education.degree}
                             {education.level}
+                            <button onClick={() => {props.removeItem(education.id)}}>Remove</button>
                         </li>;
                 }
             )}

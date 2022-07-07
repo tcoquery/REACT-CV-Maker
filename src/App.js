@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();  
 
-    this.onInfoEdit = this.onInfoEdit.bind(this);
+
     this.state = {
       general: {
         firstName: '',
@@ -31,6 +31,13 @@ class App extends Component {
     };
   }
   
+  removeItem = (id) => {
+    const newEducations = this.state.educations.filter((educ) => educ.id !== id);
+
+    this.setState({
+			educations: newEducations
+		})
+  };
 
   handleInfoChange = (e) => {
 		const {name, value} = e.target
@@ -44,7 +51,7 @@ class App extends Component {
 		const {name, value} = e.target
 		
 		this.setState({
-			education: {...this.state.education, [name]: value, id: this.state.education.id}
+			education: {...this.state.education, [name]: value}
 		})
 	}
 
@@ -76,7 +83,7 @@ class App extends Component {
     });
   };
 
-  onEducEdit = () => {
+  onEducSave = () => {
     this.setState({
       showEduc: true
     });
@@ -106,7 +113,7 @@ class App extends Component {
       <div>
         {formInfo}
         <h1> Education </h1>
-        <EducInformation onClick={this.onEducEdit} educations={educations} />
+        <EducInformation onClick={this.onEducSave} removeItem={this.removeItem} educations={educations} />
         {formEduc}
       </div>
     );
