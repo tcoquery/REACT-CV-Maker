@@ -93,14 +93,13 @@ class App extends Component {
 
     if (showEduc) {
       formEduc = <EducInput onSubmit={this.onEducSubmit} onChange={this.handleEducChange} school={education.school} startYear={education.startYear} endYear={education.endYear} degree={education.degree} level={education.level}/>;    
-    } else {
-      formEduc = <EducInformation onClick={this.onEducEdit} educations={educations} />;
-    };
+    } ;
 
     return (
       <div>
         {formInfo}
         <h1> Education </h1>
+        <EducInformation onClick={this.onEducEdit} educations={educations} />
         {formEduc}
       </div>
     );
