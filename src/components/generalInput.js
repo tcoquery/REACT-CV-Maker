@@ -13,7 +13,7 @@ const GeneralInput = (props) => {
                 type="text"
                 id="firstName"
             />
-            <label htmlFor="lastName">LastName</label>
+            <label htmlFor="lastName">Last Name</label>
             <input
                 onChange={props.onChange}
                 name="lastName"
