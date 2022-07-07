@@ -3,6 +3,7 @@ import GeneralInformation from "./components/generalInformation";
 import GeneralInput from "./components/generalInput";
 import EducInformation from "./components/educInformation";
 import EducInput from "./components/educInput";
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor() {
@@ -22,7 +23,9 @@ class App extends Component {
         endYear: '',
         degree: '',
         level: '',
+        id: uniqid()
       },
+      educations: [],
       showInfo: true,
       showEduc: false
     };
@@ -41,7 +44,7 @@ class App extends Component {
 		const {name, value} = e.target
 		
 		this.setState({
-			education: {...this.state.education, [name]: value}
+			education: {...this.state.education, [name]: value, id: this.state.education.id}
 		})
 	}
 
@@ -55,6 +58,7 @@ class App extends Component {
   onEducSubmit = (e) => {
     e.preventDefault();
     this.setState({
+      educations: this.state.educations.concat(this.state.education),
       showEduc: false
     });
   };
@@ -76,7 +80,7 @@ class App extends Component {
 
     const showInfo = this.state.showInfo;
     const showEduc = this.state.showEduc;
-    const {general, education} = this.state;
+    const {general, education, educations} = this.state;
 
     let formInfo;
     let formEduc;
@@ -90,7 +94,7 @@ class App extends Component {
     if (showEduc) {
       formEduc = <EducInput onSubmit={this.onEducSubmit} onChange={this.handleEducChange} school={education.school} startYear={education.startYear} endYear={education.endYear} degree={education.degree} level={education.level}/>;    
     } else {
-      formEduc = <EducInformation onClick={this.onEducEdit} school={education.school} startYear={education.startYear} endYear={education.endYear} degree={education.degree} level={education.level}/>;
+      formEduc = <EducInformation onClick={this.onEducEdit} educations={educations} />;
     };
 
     return (

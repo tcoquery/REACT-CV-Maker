@@ -1,19 +1,23 @@
 import React from "react";
 
 const EducInformation = (props) => {
+    const { educations } = props;
 
   return (
     <div>
         <ul>
-            <li>
-                {props.school}
-                {props.startYear}
-                {props.endYear}
-                {props.degree}
-                {props.level}
-                <button onClick={props.onClick}>Add</button>
-            </li>
+            {educations.map((education) => {
+                return <li key={education.id}>
+                            {education.school}
+                            {education.startYear}
+                            {education.endYear}
+                            {education.degree}
+                            {education.level}
+                        </li>;
+                }
+            )}
         </ul>
+        <button onClick={props.onClick}>Add</button>
     </div>
   );
 };
