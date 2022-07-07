@@ -16,7 +16,7 @@ const EducInput = (props) => {
             <label htmlFor="startYear">Start Year</label>
             <input
                 onChange={props.onChange}
-                name="start"
+                name="startYear"
                 value={props.startYear}
                 type="number"
                 id="startYear"
@@ -24,7 +24,7 @@ const EducInput = (props) => {
             <label htmlFor="endYear">End Year</label>
             <input
                 onChange={props.onChange}
-                name="end"
+                name="endYear"
                 value={props.endYear}
                 type="number"
                 id="endYear"
@@ -40,7 +40,7 @@ const EducInput = (props) => {
             <label htmlFor="levelInput">Level</label>
             <input
                 onChange={props.onChange}
-                name="Level"
+                name="level"
                 value={props.level}
                 type="text"
                 id="levelInput"
