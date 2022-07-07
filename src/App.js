@@ -59,6 +59,13 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       educations: this.state.educations.concat(this.state.education),
+      education: {
+        school: '',
+        startYear: '',
+        endYear: '',
+        degree: '',
+        level: '',
+      },
       showEduc: false
     });
   };
