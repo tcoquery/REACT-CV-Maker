@@ -18,7 +18,7 @@ const EducInput = (props) => {
                 onChange={props.onChange}
                 name="startYear"
                 value={props.startYear}
-                type="number"
+                type="date"
                 id="startYear"
             />
             <label htmlFor="endYear">End Year</label>
@@ -26,7 +26,7 @@ const EducInput = (props) => {
                 onChange={props.onChange}
                 name="endYear"
                 value={props.endYear}
-                type="number"
+                type="date"
                 id="endYear"
             />
             <label htmlFor="degreeInput">Degree</label>

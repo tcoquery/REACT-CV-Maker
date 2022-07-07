@@ -3,6 +3,8 @@ import GeneralInformation from "./components/generalInformation";
 import GeneralInput from "./components/generalInput";
 import EducInformation from "./components/educInformation";
 import EducInput from "./components/educInput";
+import JobInformation from "./components/jobInformation";
+import JobInput from "./components/jobInput";
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -25,17 +27,35 @@ class App extends Component {
         level: '',
         id: uniqid()
       },
+      job: {
+        company: '',
+        title: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+        id: uniqid()
+      },
       educations: [],
+      jobs: [],
       showInfo: true,
-      showEduc: false
+      showEduc: false,
+      showJob: false
     };
   }
   
-  removeItem = (id) => {
+  removeEducItem = (id) => {
     const newEducations = this.state.educations.filter((educ) => educ.id !== id);
 
     this.setState({
 			educations: newEducations
+		})
+  };
+
+  removeJobItem = (id) => {
+    const newJobs = this.state.jobs.filter((job) => job.id !== id);
+
+    this.setState({
+			jobs: newJobs
 		})
   };
 
@@ -52,6 +72,14 @@ class App extends Component {
 		
 		this.setState({
 			education: {...this.state.education, [name]: value}
+		})
+	}
+
+  handleJobChange = (e) => {
+		const {name, value} = e.target
+		
+		this.setState({
+			job: {...this.state.job, [name]: value}
 		})
 	}
 
@@ -73,6 +101,22 @@ class App extends Component {
         degree: '',
         level: '',
       },
+      showJob: false
+    });
+  };
+
+  onJobSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      jobs: this.state.jobs.concat(this.state.job),
+      job: {
+        company: '',
+        title: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+        id: uniqid()
+      },
       showEduc: false
     });
   };
@@ -89,15 +133,23 @@ class App extends Component {
     });
   };
 
+  onJobSave = () => {
+    this.setState({
+      showJob: true
+    });
+  };
+
 
   render() {
 
     const showInfo = this.state.showInfo;
     const showEduc = this.state.showEduc;
-    const {general, education, educations} = this.state;
+    const showJob = this.state.showJob;
+    const {general, education, educations, job, jobs} = this.state;
 
     let formInfo;
     let formEduc;
+    let formJob
 
     if (showInfo) { 
       formInfo = <GeneralInput onSubmit={this.onInfoSubmit} onChange={this.handleInfoChange} firstName={general.firstName} lastName={general.lastName} email={general.email} phone={general.phoneNumber}/>;  
@@ -109,12 +161,19 @@ class App extends Component {
       formEduc = <EducInput onSubmit={this.onEducSubmit} onChange={this.handleEducChange} school={education.school} startYear={education.startYear} endYear={education.endYear} degree={education.degree} level={education.level}/>;    
     } ;
 
+    if (showJob) {
+      formJob = <JobInput onSubmit={this.onJobSubmit} onChange={this.handleJobChange} company={job.company} startDate={job.startDate} endDate={job.endDate} title={job.title} description={job.description}/>;    
+    } ;
+
     return (
       <div>
         {formInfo}
-        <h1> Education </h1>
-        <EducInformation onClick={this.onEducSave} removeItem={this.removeItem} educations={educations} />
+        <p> Education </p>
+        <EducInformation onClick={this.onEducSave} removeItem={this.removeEducItem} educations={educations} />
         {formEduc}
+        <p> Jobs </p>
+        <JobInformation onClick={this.onJobSave} removeItem={this.removeJobItem} jobs={jobs} />
+        {formJob}
       </div>
     );
   }
