@@ -6,14 +6,14 @@ class App extends Component {
   constructor() {
     super();  
 
-    this.onEdit = this.onEdit.bind(this);
+    this.onInfoEdit = this.onInfoEdit.bind(this);
     this.state = {
       general: {
         name: '',
         email: '',
         phoneNumber:'', 
       },
-      showInputs: true
+      showInfo: true
     };
   }
   
@@ -29,28 +29,28 @@ class App extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      showInputs: false
+      showInfo: false
     });
   };
 
-  onEdit = () => {
+  onInfoEdit = () => {
     this.setState({
-      showInputs: true
+      showInfo: true
     });
   };
 
 
   render() {
 
-    const showInputs = this.state.showInputs;
+    const showInfo = this.state.showInfo;
     const general = this.state;
 
     let formInfo;
 
-    if (showInputs) { 
+    if (showInfo) { 
       formInfo = <GeneralInput onSubmit={this.onSubmit} onChange={this.handleChange} name={general.name} email={general.email} phone={general.phoneNumber}/>;  
     } else {
-      formInfo = <GeneralInformation onClick={this.onEdit} name={general.name} email={general.email} phone={general.phoneNumber}/>;    
+      formInfo = <GeneralInformation onClick={this.onInfoEdit} name={general.name} email={general.email} phone={general.phoneNumber}/>;    
     }
 
     return (
