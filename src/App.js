@@ -131,13 +131,20 @@ const App = () => {
 
   return (
     <div>
-      {formInfo}
-      <p> Education </p>
-      <EducInformation onClick={onEducSave} removeItem={removeEducItem} educations={educations} />
-      {formEduc}
-      <p> Jobs </p>
-      <JobInformation onClick={onJobSave} removeItem={removeJobItem} jobs={jobs} />
-      {formJob}
+      <div class="bg-blue-800 font-bold font-mono text-5xl text-white text-center py-4">CV Maker</div>
+      <div>      
+        {formInfo}
+        <div class="container mx-auto p-6 max-w-4xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex justify-between items-center gap-4 mt-12 flex flex-col">      
+          <p class="font-bold text-3xl"> Education </p>
+          {formEduc}
+          <EducInformation onClick={onEducSave} removeItem={removeEducItem} educations={educations} />
+        </div>
+        <div class="container mx-auto p-6 max-w-4xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex justify-between items-center gap-4 mt-12 flex flex-col">
+          <p class="font-bold text-3xl"> Experience </p>
+          {formJob}
+          <JobInformation onClick={onJobSave} removeItem={removeJobItem} jobs={jobs} />
+        </div>  
+      </div>
     </div>
   );
 }
