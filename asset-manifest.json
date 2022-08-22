@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/REACT-CV-Maker/static/css/main.8801716c.css",
+    "main.js": "/REACT-CV-Maker/static/js/main.cffef6e4.js",
+    "index.html": "/REACT-CV-Maker/index.html",
+    "main.8801716c.css.map": "/REACT-CV-Maker/static/css/main.8801716c.css.map",
+    "main.cffef6e4.js.map": "/REACT-CV-Maker/static/js/main.cffef6e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8801716c.css",
+    "static/js/main.cffef6e4.js"
+  ]
+}
