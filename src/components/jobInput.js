@@ -66,19 +66,17 @@ const JobInput = (props) => {
                 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             />
             <label htmlFor="descriptionInput" class="text-l font-bold mt-4">Description</label>
-            <input
+            <textarea
                 onChange={props.onChange}
                 name="description"
                 value={props.description}
-                type="text-area"
                 id="descriptionInput"
                 rows="3"
                 class="mt-1
-                h-24
-                
+                block
                 w-full
                 rounded-md
-                border-gray-700
+                border-gray-300
                 shadow-sm
                 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             />
